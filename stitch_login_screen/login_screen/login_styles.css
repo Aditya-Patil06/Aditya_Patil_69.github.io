@@ -1,0 +1,64 @@
+/*
+ * Custom styles for the login page to add a gradient background and text color changes.
+ * The gradient is applied to the body and is a subtle, non-distracting effect.
+ */
+body {
+    /* A beautiful dark-to-light diagonal gradient with a mid-tone stop for a smoother transition */
+    background: linear-gradient(135deg, #101922 0%, #1a2a38 30%, #4f5a6b 70%, #f6f7f8 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 20s ease infinite;
+}
+
+/* Add an animated gradient to the background */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Override the Tailwind background color to allow the gradient to show */
+.bg-background-light,
+.dark .bg-background-dark {
+    background-color: transparent;
+}
+
+/*
+ * Subtle glowing border effect on input focus.
+ * Adds a transition for a smoother visual effect.
+ */
+.form-input:focus {
+    box-shadow: 0 0 0 2px rgba(19, 127, 236, 0.5); /* Primary color with transparency */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/*
+ * Subtle shadow on the login form card.
+ * A transition is added to animate changes to the background color and box shadow.
+ */
+.bg-white.dark\:bg-background-dark\/50 {
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.dark .bg-white.dark\:bg-background-dark\/50 {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+/*
+ * New rules to make the specified text elements white.
+ * The !important declaration is used to override the inline Tailwind classes.
+ */
+.text-gray-600,
+.text-gray-900 {
+    color: #ffffff !important;
+}
+
+.dark .text-gray-400 {
+    color: #ffffff !important;
+}
